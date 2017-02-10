@@ -1,0 +1,29 @@
+* {padding: 0; box-sizing: border-box;}
+body { font: 13px Helvetica, Arial;background: url('BACKGROUND.jpg') fixed;
+    background-size: cover;padding: 0;margin: 0; }
+form{position: fixed;bottom: 0;width: 100%;}
+input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+/*.button { color:#FFF; background: #2D9F0B; border: none; padding: 10px;  width: 11%; }*/
+#messages { list-style-type: none; margin: 0; padding: 0;    color: aliceblue; }
+#messages li { padding: 5px 10px; }
+#messages li:nth-child(odd) {  }
+#notifyUser { position: fixed; bottom: 22px; width: 100%;top:0;color:red; }
+#login {margin-top: 210px;padding: 20px;}
+#sendButton{	width: 10%;    float: right; }
+.btn-sm, .btn-group-sm>.btn {    padding: 10px 10px !important; }
+#user {	width : 200px;    background: 0;    border-color: 0;    border-bottom: 1px solid #FFFFFF;    outline: 0;
+    letter-spacing: 1px;    color: #eee;    font-style: italic;    font-size: 12px;    font-weight: 400;}
+#userNameInput{	margin-left: 15% !important;}
+#userVerify{	    color: #e8ec27;    height: 35px;    width: 100%;    padding: 10px;}
+#chatButton{	margin-left: 20% !important;cursor: pointer}
+.col-md-offset-5{	margin-left: 39.666667% !important;}
+#leaveChat{position: absolute;   	top: 0;    right: 0;}
+#messageDiv{ height:80%;position:absolute;margin-bottom: 50px;margin-top: 30px;display: block;width: 100%;
+overflow: hidden;overflow: auto;vertical-align: bottom;}
+#chatBox{height:10%;position:relative;width: 100%;}
+p {margin: 0px 30px 0px !important;}
+#usersList{    color: #f5ffd7;border: 1px double azure;font-weight: 700;background: maroon;}
+#activeUsers {  list-style: none;  padding: 0;  margin: 0;}
+#activeUsers li {  padding-left: 1em;   text-indent: -.7em;}
+#activeUsers li::before {  content: "• ";  color: #84ff84;   list-style: square;  font-weight: 900;}
+#heading{color: #8fff00;padding-left: 2px;}

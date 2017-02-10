@@ -1,0 +1,20 @@
+<html>
+   <head>
+    <title>Chat Application</title>
+    <link rel='stylesheet' href='style.css' type='text/css'/>
+    <link rel='stylesheet' href='bootstrap.min.css' type='text/css'/>
+    <script type="text/javascript" src="socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+    <script type="text/javascript" src="JQuery.cookie.js"></script>
+  </head>
+  <body class="row"> 
+    <div id="login" class="col-md-offset-5 col-md-3">
+      <div id="userNameInput" class="col-md-3">
+        <input type="text" id="user" value=""  onkeyup="clearError();" placeholder="Enter User Name"/></div>
+      <span id="userVerify" class="col-md-3" ></span>
+      <button id="chatButton"  class="col-md-8  btn btn-success btn-sm" onclick = "joinChat()"> StartChat</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "chatapplication",
+  "version": "1.0.0",
+  "description": "chat application using http, socket , gravatar , nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abinavaraamk"
+  },
+  "author": "abi",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.10.2",
+    "js-cookie": "^2.1.3"
+  }
+}

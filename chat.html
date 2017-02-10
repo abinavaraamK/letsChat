@@ -1,0 +1,31 @@
+<html>
+   <head>
+    <title>Chat Application</title>
+    <link rel='stylesheet' href='style.css' type='text/css'/>
+    <link rel='stylesheet' href='bootstrap.min.css' type='text/css'/>
+    <script type="text/javascript" src="socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+    <script type="text/javascript" src="JQuery.cookie.js"></script>
+  </head>
+<body style="position:relative;">
+  <span id="notifyUser"></span>
+  <div id="messageDiv" class="col-md-10">
+    <ul id="messages"></ul>
+  </div>
+  <div id="chatBox">
+    <form id="form" action="" onsubmit="return submitfunction();" > 
+          <input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." />
+          <input type="submit" id="sendButton" class="button btn btn-success btn-sm" value="Send"/> 
+    </form>
+ </div>
+ <button type="button" class="col-md-offset-11 col-md-1 btn btn-success btn-sm" value="LeaveChat" id="leaveChat" onclick="leaveChat()">Leave Chat</button>
+ <div id="usersList" class="col-xs-offset-10 col-xs-2 col-sm-offset-10 col-sm-2 col-md-offset-11 col-md-1">
+  <h5 id="heading">Active Users</h5>
+    <ul id="activeUsers">
+
+    </ul>
+ </div>
+</body>
+</html>
