@@ -1,4 +1,4 @@
-	var express = require('express');
+var express = require('express');
 
 var app = express();
 
@@ -13,16 +13,19 @@ var checkUsers = [];
 var cutoffLogin = false;
 var currentUserName ;
 
+app.use(express.static(path.join(__dirname,'/public')));
+
 app.get('/',function(req,res){
-	app.use(express.static(path.join(__dirname)));
-	res.sendFile(path.join(__dirname,'../MultiChatApp','index.html'));	
+	/*app.use(express.static(path.join(__dirname)));*/
+	res.sendFile(path.join(__dirname,'index.html'));	
 });
 
 app.get('/startChat',function(req,res){
-	app.use(express.static(path.join(__dirname)));
+	/*app.use(express.static(path.join(__dirname)));*/
 	console.log("req.query.id is set to " + req.query.userName);
 	currentUserName = req.query.userName;
-	res.sendFile(path.join(__dirname,'../MultiChatApp','chat.html'));	
+	/*res.sendFile(path.join(__dirname,'../MultiChatApp','chat.html'));	*/
+	res.sendFile(path.join(__dirname,'chat.html'));	
 });
 
 
