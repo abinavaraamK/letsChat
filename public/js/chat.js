@@ -4,8 +4,7 @@ var userName;
 function joinChat(){
 	var user = $('#user').val();
 	if(user === null || user === ''){
-		alert("user cannot be empty");
-		$("#userVerify").append("<p> user cannot be empty");
+		$("#userVerify").append("<p> user cannot be empty</p>");
 	}else{
 		console.log("user ", user);
 		Cookies.set("userName",user);
