@@ -3,9 +3,16 @@ var userName;
 
 function joinChat(){
 	var user = $('#user').val();
-	console.log("user ", user);
-	Cookies.set("userName",user);
-	socket.emit('newUser',user);
+	if(user === null || user === ''){
+		alert("user cannot be empty");
+		$("#userVerify").append("<p> user cannot be empty");
+	}else{
+		console.log("user ", user);
+		Cookies.set("userName",user);
+		socket.emit('newUser',user);	
+		
+	}
+	
 }
 
 function notifyTyping(){
@@ -18,7 +25,9 @@ function submitfunction(){
 	var from =  Cookies.get("userName"); 
 	console.log('from in submitfunction '+ userName);
 	var message = $('#m').val();
-	if(message != null || message != ''){
+	if(message === null || message ===''){
+		alert("input messages cannot be null");
+	}else{
 		socket.emit('chatMessage',from,message);
 		var messageDiv =document.getElementById("messageDiv");
 		/*console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
@@ -27,8 +36,9 @@ function submitfunction(){
 		var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
-		}    		
+		}  
 	}
+
 	$('#m').val('').focus();
 	return false;
 }
@@ -56,7 +66,7 @@ socket.on('addUserName',function(value,user){
 		}
 		
 	}else{
-		$("#userVerify").append("<p> cannot add user.User Already exists");
+		$("#userVerify").append("<p> cannot add user.User Already exists</p>");
 	}
 });
 
