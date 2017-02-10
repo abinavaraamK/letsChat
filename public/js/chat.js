@@ -10,8 +10,7 @@ function joinChat(){
 		Cookies.set("userName",user);
 		socket.emit('newUser',user);	
 		
-	}
-	
+	}	
 }
 
 function notifyTyping(){
@@ -122,3 +121,9 @@ socket.on('listOfUsers',function(usersList){
 
 	console.log("listOfUsers.............................." +usersList);	
 });
+
+socket.on('emoji',function(emoji){
+	console.log(emoji.emoji.coffee);
+
+});
+

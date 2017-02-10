@@ -12,6 +12,10 @@ var userNames = [];
 var checkUsers = [];
 var cutoffLogin = false;
 var currentUserName ;
+var emojisArr = [];
+
+var emoji = require('node-emoji');
+
 
 app.use(express.static(path.join(__dirname,'/public')));
 
@@ -26,10 +30,17 @@ app.get('/startChat',function(req,res){
 });
 
 
+emojisArr.push(emoji.get('coffee'));
+
+emojisArr.push(emoji.get('100'));
+
+
 io.on('connection',function(socket){
 	console.log('connection established');
 
 	io.emit('listOfUsers',userNames);
+
+	io.emit('emoji',emoji);
 	
 	socket.on('disconnect',function(){
 		console.log('user disconnected');
