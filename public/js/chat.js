@@ -10,7 +10,7 @@ function joinChat(){
 	if(user === null || user === ''){
 		$("#userVerify").append("<p> user cannot be empty</p>");
 	}else{
-		/*console.log("user ", user);*/
+		console.log("user ", user);
 		Cookies.set("userName",user);
 		socket.emit('newUser',user);	
 		
