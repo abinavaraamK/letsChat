@@ -19,18 +19,18 @@ function joinChat(){
 
 function refreshScroll(){
 	console.log("inside binding refreshScroll" );
-	var messageDiv =document.getElementById("messageDiv");
-	/*console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
+	/*var messageDiv =document.getElementById("messageDiv");
+	console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
 	console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
-	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	*/
+	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
 	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
-		}  
+		}  */
 };
 
 function refreshScrollBody(){
-	setInterval(checkingScroll,5000);
+	setInterval(checkingScroll,1000);
 };
 
 function checkingScroll(){
@@ -48,11 +48,11 @@ function checkingScroll(){
 function notifyTyping(){
 	var user = Cookies.get("userName");
 	console.log("user from notifyTyping " +user);
-	var messageDiv =document.getElementById("messageDiv");
+	/*var messageDiv =document.getElementById("messageDiv");
 	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
-		}  
+		}  */
 	socket.emit('notifyUser',user);
 }
 
