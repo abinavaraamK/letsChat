@@ -20,9 +20,9 @@ function joinChat(){
 function refreshScroll(){
 	console.log("inside binding refreshScroll" );
 	var messageDiv =document.getElementById("messageDiv");
-	console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
+	/*console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
 	console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
-	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
+	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	*/
 	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
@@ -36,9 +36,9 @@ function refreshScrollBody(){
 function checkingScroll(){
 	console.log("inside binding refreshScrollBody" );
 	var messageDiv =document.getElementById("messageDiv");
-	console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
+	/*console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
 	console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
-	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
+	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	*/
 	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
@@ -106,9 +106,9 @@ socket.on('addUserName',function(value,user){
 });
 
 socket.on('serverChatMessage',function(from,msg){
-	console.log("from " +from);
+/*	console.log("from " +from);
 	console.log("message "+ msg);
-	console.log("me "+userName);
+	console.log("me "+userName);*/
 	var me = Cookies.get("userName"); 
 	console.log("me "+ me);
 	var color = (from == me) ? 'ffc4c4' : '0addf5';
@@ -120,8 +120,8 @@ socket.on('serverChatMessage',function(from,msg){
 
 socket.on('notifyServerUser', function(user){
   var me = Cookies.get("userName"); 
-  console.log('inside notify user me'+ me);
-  console.log('inside notify user received'+ me);
+ /* console.log('inside notify user me'+ me);
+  console.log('inside notify user received'+ me);*/
   if(user != me) {
     $('#notifyUser').text(user + ' is typing ...');
   }
@@ -161,6 +161,5 @@ socket.on('listOfUsers',function(usersList){
 
 socket.on('emoji',function(emoji){
 	console.log(emoji.emoji.coffee);
-
 });
 
