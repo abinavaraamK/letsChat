@@ -16,7 +16,7 @@
   </div>
   <div id="chatBox">
     <form id="form" action="" onsubmit="return submitfunction();" > 
-          <input id="m" autocomplete="off" onkeyup="notifyTyping();" placeholder="Type yor message here.." required/>
+          <input id="m" autocomplete="off" onkeyup="notifyTyping();" onfocusout="refreshScrollBody();" onfocus="refreshScroll();" placeholder="Type yor message here.." required/>
           <input type="submit" id="sendButton" class="button btn btn-success btn-sm" value="Send"/> 
     </form>
  </div>

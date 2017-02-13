@@ -1,6 +1,10 @@
 var socket = io();
 var userName;
 
+$( document ).ready(function() {
+  $( "#m" ).focus();
+});
+
 function joinChat(){
 	var user = $('#user').val();
 	if(user === null || user === ''){
@@ -13,9 +17,42 @@ function joinChat(){
 	}	
 }
 
+function refreshScroll(){
+	console.log("inside binding refreshScroll" );
+	var messageDiv =document.getElementById("messageDiv");
+	console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
+	console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
+	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
+	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
+		if(!isScrolledToBottom){
+			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
+		}  
+};
+
+function refreshScrollBody(){
+	setInterval(checkingScroll,5000);
+};
+
+function checkingScroll(){
+	console.log("inside binding refreshScrollBody" );
+	var messageDiv =document.getElementById("messageDiv");
+	console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
+	console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
+	console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
+	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
+		if(!isScrolledToBottom){
+			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
+		}  
+}
+
 function notifyTyping(){
 	var user = Cookies.get("userName");
 	console.log("user from notifyTyping " +user);
+	var messageDiv =document.getElementById("messageDiv");
+	var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
+		if(!isScrolledToBottom){
+			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
+		}  
 	socket.emit('notifyUser',user);
 }
 
@@ -27,14 +64,14 @@ function submitfunction(){
 		alert("input messages cannot be null");
 	}else{
 		socket.emit('chatMessage',from,message);
-		var messageDiv =document.getElementById("messageDiv");
 		/*console.log("$('#messageDiv').scrollHeight "+messageDiv.scrollHeight);
 		console.log("$('#messageDiv').clientHeight "+messageDiv.clientHeight );
-		console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	*/
+		console.log("$('#messageDiv').scrollTop "+ messageDiv.scrollTop);	
+		var messageDiv =document.getElementById("messageDiv");
 		var isScrolledToBottom = messageDiv.scrollHeight - messageDiv.clientHeight <= messageDiv.scrollTop + 1;
 		if(!isScrolledToBottom){
 			messageDiv.scrollTop = (messageDiv.scrollHeight - messageDiv.clientHeight) ;	
-		}  
+		}  */
 	}
 
 	$('#m').val('').focus();
