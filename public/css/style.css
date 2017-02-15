@@ -3,10 +3,33 @@ body { font: 13px Helvetica, Arial;background: url('BACKGROUND.jpg') fixed;
     background-size: cover;padding: 0;margin: 0; }
 form{position: fixed;bottom: 0;width: 100%;}
 input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-/*.button { color:#FFF; background: #2D9F0B; border: none; padding: 10px;  width: 11%; }*/
-#messages { list-style-type: none; margin: 0; padding: 0;    color: aliceblue; }
+.liBorder {    background: white;margin: 5 5;    background-color: aliceblue;    border: 1px solid whitesmoke;    border-top-width: 1px;
+    box-sizing: border-box;    -webkit-border-radius: 7px;    -moz-border-radius: 3px;    -webkit-box-shadow: none;
+    -webkit-box-sizing: border-box;    overflow: auto;}
+#messages {   list-style: none; margin: 0; padding: 0;    color: aliceblue; }
 #messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) {  }
+#messages li:nth-child(odd) {    }
+#messages li:nth-child(even) {  }
+#messages li::before{
+	content: '';
+   display: inline-block;
+   height: 15px;
+   width:  15px;
+   background-image: url('image.svg');  
+}
+
+@media (min-width:  680px){
+	#messages li::before{
+		margin-left: -559px;
+	}
+}
+
+@media (min-width:  1300px){
+	#messages li::before{
+		margin-left: -1172px;
+	}
+}
+
 #notifyUser { position: fixed; bottom: 22px; width: 100%;top:0;color:red; }
 #login {margin-top: 210px;padding: 20px;}
 #sendButton{	width: 10%;    float: right; }
@@ -15,15 +38,17 @@ input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
     letter-spacing: 1px;    color: #eee;    font-style: italic;    font-size: 12px;    font-weight: 400;}
 #userNameInput{	margin-left: 15% !important;}
 #userVerify{	    color: #e8ec27;    height: 35px;    width: 100%;    padding: 10px;}
-#chatButton{	margin-left: 20% !important;cursor: pointer}
+#chatButton{	margin-left: 22% !important;cursor: pointer}
 .col-md-offset-5{	margin-left: 39.666667% !important;}
 #leaveChat{position: absolute;   	top: 0;    right: 0;}
-#messageDiv{ height:80%;position:absolute;margin-bottom: 50px;margin-top: 30px;display: block;width: 100%;
+#messageDiv{ height:80%;position:absolute;margin-bottom: 50px;margin-top: 30px;display: block;width: 90%;
 overflow: hidden;overflow: auto;vertical-align: bottom;}
 #chatBox{height:10%;position:relative;width: 100%;}
 p {margin: 0px 30px 0px !important;}
-#usersList{    color: #f5ffd7;border: 1px double azure;font-weight: 700;background: maroon;}
+#usersList{       color: #f5ffd7;    border: 1px solid azure;    font-weight: 700;    background: #eee;    border-top-width: 1px;
+    border-bottom-width: 2px;    -webkit-border-radius: 6px;}
 #activeUsers {  list-style: none;  padding: 0;  margin: 0;}
-#activeUsers li {  padding-left: 1em;   text-indent: -.7em;}
+#activeUsers li {  padding-left: 1em;   text-indent: -.7em;    color: #009688;}
 #activeUsers li::before {  content: "• ";  color: #84ff84;   list-style: square;  font-weight: 900;}
-#heading{color: #8fff00;padding-left: 2px;}
+#heading{color:  #673AB7;padding-left: 2px;}
+.showMessage{height:30px;}

@@ -57,10 +57,10 @@ io.on('connection',function(socket){
 		socket.disconnect();
 	});
 
-	socket.on('chatMessage',function(from,msg){
+	socket.on('chatMessage',function(from,msg,time){
 		console.log('from '+ from);
 		console.log('chatMessage '+msg);
-		io.emit('serverChatMessage',from,msg);
+		io.emit('serverChatMessage',from,msg,time);
 	});
 
 	socket.on('notifyUser',function(user){
