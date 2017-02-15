@@ -1,4 +1,5 @@
-var socket = io();
+/*var socket = io();*/
+var socket = io.connect({transports: ['websocket']});
 var userName;
 var hour,minute,time;
 var displayPushNotification;
