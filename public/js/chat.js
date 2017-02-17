@@ -1,5 +1,5 @@
 /*var socket = io();*/
-var socket = io.connect({transports: ['websocket']});
+var socket = io.connect('http://54.146.148.115:3000',{transports: ['websocket']});
 var userName;
 var hour,minute,time;
 var displayPushNotification;
