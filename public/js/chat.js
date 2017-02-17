@@ -125,6 +125,8 @@ function notifyMe(from,msg){
 	}
 }
 
+socket.on('currentStatus', function (data){ console.log(data) });
+
 socket.on('addUserName',function(value,user){
 	console.log("value " +value);
 	console.log("user " +user);

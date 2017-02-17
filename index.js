@@ -42,6 +42,9 @@ io.on('connection',function(socket){
 
 	io.emit('emoji',emoji);
 	
+	app.sendCurrentStatus(socket.id);
+	socket.emit('currentStatus', {'connected': true});
+
 	socket.on('disconnect',function(){
 		console.log('user disconnected');
 	});
