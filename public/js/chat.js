@@ -1,11 +1,15 @@
 /*var socket = io();*/
-var socket = io.connect('http://54.146.148.115:3000',{transports: ['websocket']});
+var socket = io.connect(
+	'',
+	{transports   : ['polling', 'websocket']});
 var userName;
 var hour,minute,time;
 var displayPushNotification;
 
 $( document ).ready(function() {
   /*$( "#m" ).focus();*/
+  $("#smiley").hide();
+
 });
 
 
@@ -125,6 +129,10 @@ function notifyMe(from,msg){
 	}
 }
 
+function showEmoji(){
+	$("#smiley").toggle();
+}
+
 socket.on('addUserName',function(value,user){
 	console.log("value " +value);
 	console.log("user " +user);
@@ -206,6 +214,38 @@ socket.on('listOfUsers',function(usersList){
 });
 
 socket.on('emoji',function(emoji){
-	console.log(emoji.emoji.coffee);
+	console.log(emoji.emoji)
+	var size = Object.keys(emoji.emoji).length;
+	var val = Object.values(emoji.emoji);
+	console.log(size)
+	console.log(val)
+	console.log(val[1])
+
+	for(var t=800;t<1000;t++)
+		$('#one').append('<td data-value="'+val[t]+'"> '+val[t]+'</td>' );	
+	for(var t=0;t<200;t++)
+		$('#two').append('<td data-value="'+val[t]+'">'+val[t]+'</td>' );	
+	for(var t=400;t<600;t++)
+		$('#three').append('<td data-value="'+val[t]+'"> '+val[t]+'</td>' );	
+	for(var t=600;t<800;t++)
+		$('#four').append('<td data-value="'+val[t]+'"> '+val[t]+'</td>' );	
+	for(var t=200;t<400;t++)
+		$('#five').append('<td data-value="'+val[t]+'"> '+val[t]+'</td>' );
 });
 
+/*$(function(){
+	var tbl = document.getElementById("smiley");
+	console.log(tbl)
+	for (var i = 0; i < tbl.rows.length; i++) {
+	   for (var j = 0; j < tbl.rows[i].cells.length; j++){
+          tbl.rows[i].cells[j].onclick = function () {   getval(this);};
+    	}
+    }
+});
+*/
+$(document).on("click", "#smiley td", function(e) {
+    var data = $(this).attr('data-value');
+    console.log(data);
+  	var text = $("#m");
+  	text.val(text.val() + data )
+}); 

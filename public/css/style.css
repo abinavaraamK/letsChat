@@ -52,3 +52,5 @@ p {margin: 0px 30px 0px !important;}
 #activeUsers li::before {  content: "• ";  color: #84ff84;   list-style: square;  font-weight: 900;}
 #heading{color:  #673AB7;padding-left: 2px;}
 .showMessage{height:30px;}
+table{border: 1px solid red;    overflow: auto;        display: block;    background: white !important;  
+  display: block;    cursor: pointer;}

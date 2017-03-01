@@ -16,7 +16,25 @@
   </div>
   <div id="chatBox">
     <form id="form" action="" onsubmit="return submitfunction();" > 
-          <input id="m" autocomplete="off" onkeyup="notifyTyping();" onfocusin="refreshScroll();" placeholder="Type yor message here.."  maxlength="115" required/>
+          <table id="smiley" >
+            <tr id="one">
+              
+            </tr>
+            <tr id="two">
+              
+            </tr>
+            <tr id="three">
+              
+            </tr>
+            <tr id="four">
+              
+            </tr>
+            <tr id="five">
+              
+            </tr>
+          </table>
+          <img src="css/smiley.png" style="width: 2%;" onclick="showEmoji()"/>
+          <input type="text" id="m" autocomplete="off" onkeyup="notifyTyping();" onfocusin="refreshScroll();" placeholder="Type yor message here.."  maxlength="115" required style="width: 87%;"/>
           <input type="submit" id="sendButton" class="button btn btn-success btn-sm" value="Send"/> 
     </form>
  </div>
